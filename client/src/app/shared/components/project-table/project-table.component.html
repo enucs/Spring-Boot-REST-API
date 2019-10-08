@@ -1,0 +1,33 @@
+<nz-table #borderedTable nzBordered [nzTitle]="this.tableTitle" 
+[nzData]="dataSet" [nzScroll]="{ x: '100vw', y: '70vh' }">
+<thead>
+    <tr>
+        <th nzWidth="50px" id="project_id">ID</th>
+        <th nzWidth="250px" id="project_title">Title</th>
+        <th nzWidth="150px" id="project_pledged">Amount Pledged</th>
+        <th nzWidth="150px" id="project_funded">Percentage Funded</th>
+        <th nzWidth="100px" id="project_currency">Currency</th>
+        <th nzWidth="200px" id="project_location">Location</th>
+        <th nzWidth="200px" id="project_state">State</th>
+        <th nzWidth="100px" id="project_country">Country</th>
+        <th nzWidth="150px" id="project_type">Type</th>
+        <th nzWidth="250px" id="project_blurb">Blurb</th>
+        <th nzWidth="150px" id="project_url">URL</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let data of borderedTable.data">
+        <td>{{ data.id }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.amountPledged }}</td>
+        <td>{{ data.percentageFunded }}</td>
+        <td>{{ data.currency }}</td>
+        <td>{{ data.location }}</td>
+        <td>{{ data.state }}</td>
+        <td>{{ data.country }}</td>
+        <td>{{ data.type }}</td>
+        <td>{{ data.blurb }}</td>
+        <td><a href="https://www.kickstarter.com{{data.url}}" target="_blank" rel="noopener noreferrer">Link</a></td>
+    </tr>
+</tbody>
+</nz-table>

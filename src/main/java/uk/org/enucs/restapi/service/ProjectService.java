@@ -66,4 +66,28 @@ public class ProjectService {
     public List<Project> findPercentageFundedGreaterThan(int percentage) {
         return projectRepository.findPercentageFundedGreaterThan(percentage);
     }
+
+    public List<Project> findPercentageFundedLessThan(int percentage) {
+        return projectRepository.findPercentageFundedLessThan(percentage);
+    }
+
+    public List<Project> findByType(String type) {
+        return projectRepository.findByType(type);
+    }
+
+    public List<Project> findByState(String state) {
+        return projectRepository.findByState(state);
+    }
+
+    public List<Project> findByLocation(String location) {
+        return  projectRepository.findByLocation(location);
+    }
+
+    public List<Project> findAllWhereTitleContains(String title) {
+        return projectRepository.findAllWhereTitleContains(title);
+    }
+
+    public void addNewProject(Project project) {
+        projectRepository.addNewProject(project);
+    }
 }

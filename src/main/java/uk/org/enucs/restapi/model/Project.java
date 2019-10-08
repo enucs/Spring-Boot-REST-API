@@ -23,6 +23,7 @@ public class Project {
 
     private String by;
 
+    @Column(name = "country")
     private String country;
 
     private String currency;

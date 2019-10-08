@@ -1,0 +1,2 @@
+copy projects (id, amount_pledged, blurb, by, country, currency, end_time, location, percentage_funded, state, title, type, url)
+from '/Users/toby/Developer/enucs/Spring-Boot-REST-API/src/main/resources/projects.csv' delimiter ',' csv header;

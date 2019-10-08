@@ -1,10 +1,7 @@
 package uk.org.enucs.restapi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uk.org.enucs.restapi.model.Project;
 import uk.org.enucs.restapi.service.ProjectService;
 
@@ -27,6 +24,11 @@ public class ProjectController {
     @GetMapping(value = "/projects")
     public List<Project> getAllProjects() {
         return projectService.findAllProjects();
+    }
+
+    @PostMapping(value = "/projects")
+    public void addNewProject(@RequestBody Project project) {
+        projectService.addNewProject(project);
     }
 
     /**
@@ -72,4 +74,21 @@ public class ProjectController {
     public List<Project> getProjectsWithFundedMoreThan(@RequestParam int percentage) {
         return projectService.findPercentageFundedGreaterThan(percentage);
     }
+
+    /**
+     * Gets projects with funded less than.
+     *
+     * @param percentage the percentage
+     * @return the projects with funded less than
+     */
+    @GetMapping(value = "/projects/funded/less-than", params = "percentage")
+    public List<Project> getProjectsWithFundedLessThan(@RequestParam int percentage) {
+        return projectService.findPercentageFundedLessThan(percentage);
+    }
+
+    @GetMapping(value = "/projects/type/{type}")
+    public List<Project> findByType(@PathVariable String type) {
+        return projectService.findByType(type);
+    }
+
 }
